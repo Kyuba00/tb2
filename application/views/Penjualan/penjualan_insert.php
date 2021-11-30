@@ -17,10 +17,6 @@
             <td><input type="date" name="tanggal_jual" value="<?php echo date('Y-m-d'); ?>" class="form-control" required=""></td>
         </tr>
         <tr>
-            <td>Jumlah Terjual</td>
-            <td><input type="number" name="jumlah_jual" value="<?php echo $penjualan_barang['jumlah_jual']; ?>" class="form-control" required=""></td>
-        </tr>
-        <tr>
             <td>&nbsp;</td>
             <td><button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button></td>
         </tr>

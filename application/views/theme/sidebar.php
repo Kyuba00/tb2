@@ -14,20 +14,6 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Dashboard
-    </div>
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="<?php echo site_url('dashboard/'); ?>">
-            <i class="fas fa-fw fa-home"></i>
-            <span>Dashboard</span></a>
-    </li>
-
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
         Menu
     </div>
 
@@ -61,22 +47,7 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pembelian Barang -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#beli" aria-expanded="true" aria-controls="beli">
-            <i class="fa fa-shopping-basket"></i></i>
-            <span>Pembelian</span>
-        </a>
-        <div id="beli" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Pembelian</h6>
-                <a class="collapse-item" href="<?php echo site_url('pembelian/read'); ?>">Data Pembelian</a>
-                <a class="collapse-item" href="<?php echo site_url('laporan_pembelian/read'); ?>">Laporan Pembelian</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Nav Item - chart -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#chart" aria-expanded="true" aria-controls="chart">
             <i class="fa fa-chart-area"></i></i>
@@ -85,9 +56,7 @@
         <div id="chart" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Charts</h6>
-                <a class="collapse-item" href="<?php echo site_url('buku/line/read'); ?>">Line Chart</a>
-                <a class="collapse-item" href="<?php echo site_url('buku/pie/read'); ?>">Pie Chart</a>
-                <a class="collapse-item" href="<?php echo site_url('buku/column/read'); ?>">Column Chart</a>
+                <a class="collapse-item" href="<?php echo site_url('barang/column/read'); ?>">Perbandingan Stock</a>
             </div>
         </div>
     </li>
