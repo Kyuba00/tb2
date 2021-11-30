@@ -9,7 +9,6 @@
             <th>No</th>
             <th>Tanggal Jual</th>
             <th>Barang</th>
-            <th>Jumlah Terjual</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -20,7 +19,6 @@
                 <td><?php echo $no++; ?></td>
                 <td><?php echo $penjualan['tanggal_jual']; ?></td>
                 <td><?php echo $penjualan['nama_barang']; ?></td>
-                <td><?php echo $penjualan['jumlah_jual']; ?></td>
                 <td>
                     <a href="<?php echo site_url('penjualan_barang/read/' . $penjualan['id']); ?>" class="btn btn-primary">
                         <i class="fas fa-book"></i> Barang
