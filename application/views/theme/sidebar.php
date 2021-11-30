@@ -42,7 +42,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Penjualan</h6>
                 <a class="collapse-item" href="<?php echo site_url('penjualan/read'); ?>">Penjualan</a>
-                <a class="collapse-item" href="<?php echo site_url('penjualan_barang/read'); ?>">Laporan Penjualan</a>
+                <a class="collapse-item" href="<?php echo site_url('penjualan_barang/read'); ?>">Penjualan Barang</a>
             </div>
         </div>
     </li>
