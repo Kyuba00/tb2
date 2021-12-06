@@ -1,42 +1,50 @@
 <!--link tambah data-->
-<a href="<?php echo site_url('barang/insert'); ?>" class="btn btn-primary">
-    <i class="fa fa-plus"> Tambah</i>
-</a>
-<a href="<?php echo site_url('barang/data_export'); ?>" class="btn btn-outline-info" style="float: right;">
-    <i class="fas fa-download">Export Excel</i>
-</a>
+<div class="float-right">
+    <a href="<?= base_url('barang/data_export') ?>" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"></i>&nbsp;&nbsp;Export</a>
+    <a href="<?= base_url('barang/insert') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+</div>
 <br /><br />
 
-<table class="table table-responsive-sm" id="datatables">
-    <thead class="table-dark">
-        <tr>
-            <th>No</th>
-            <th>Kategori</th>
-            <th>Nama Barang</th>
-            <th>Harga</th>
-            <th>Stok</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $no = 1; ?>
-        <?php foreach ($data_barang as $barang) : ?>
-            <tr>
-                <td><?php echo $no++; ?></td>
-                <td><?php echo $barang['nama_kategori_barang']; ?></td>
-                <td><?php echo $barang['nama']; ?></td>
-                <td><?php echo number_format($barang['harga']); ?></td>
-                <td><?php echo $barang['stock']; ?></td>
-                <td>
-                    <a href="<?php echo site_url('barang/update/' . $barang['id']); ?>" class="btn btn-secondary">
-                        Ubah
-                    </a>
-
-                    <a href="<?php echo site_url('barang/delete/' . $barang['id']); ?>" class="btn btn-danger">
-                        Hapus
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach ?>
-    </tbody>
-</table>
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div class="container-fluid">
+            <div class="card shadow">
+                <div class="card-header"><strong>Daftar Barang</strong></div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td>No</td>
+                                    <td>Kategori Barang</td>
+                                    <td>Nama Barang</td>
+                                    <td>Harga Beli</td>
+                                    <td>Harga Jual</td>
+                                    <td>Stok</td>
+                                    <td>Aksi</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1; ?>
+                                <?php foreach ($data_barang as $barang) : ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $barang['nama_kategori_barang']; ?></td>
+                                        <td><?php echo $barang['nama']; ?></td>
+                                        <td>Rp <?= number_format($barang['harga_beli']) ?></td>
+                                        <td>Rp <?= number_format($barang['harga_jual']) ?></td>
+                                        <td><?= number_format($barang['stock']) ?></td>
+                                        <td>
+                                            <a href="<?= base_url('barang/update/' . $barang['id']) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
+                                            <a onclick="return confirm('apakah anda yakin?')" href="<?= base_url('barang/delete/' . $barang['id']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

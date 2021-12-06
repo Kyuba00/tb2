@@ -16,13 +16,8 @@
   <link href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
   <!-- css yang digunakan datatables -->
-  <link href="<?php echo base_url('assets/vendor/datatables/jquery.dataTables.min.css'); ?>" rel="stylesheet">
-  <link href="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css'); ?>" rel="stylesheet">
-  <style type="text/css">
-    .dataTables_filter {
-      color: red;
-    }
-  </style>
+  <link href="<?php echo base_url('assets/vendor/datatables/jquery.dataTables.css'); ?>" rel="stylesheet">
+  <link href="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.css'); ?>" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -75,15 +70,9 @@
   <script src="<?php echo base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
 
   <!-- js yang digunakan datatables -->
+  <script src="<?php echo base_url('assets/js/demo/datatables-demo.js') ?>"></script>
   <script src="<?php echo base_url('assets/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#datatables').DataTable({
-        "lengthChange": false,
-        "pageLength": 5,
-      });
-    });
-  </script>
+  <script src="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 
 </body>
 

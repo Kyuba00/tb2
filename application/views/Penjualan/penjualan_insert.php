@@ -3,7 +3,7 @@
         <tr>
             <td>Barang</td>
             <td>
-                <select name="nim" class="form-control">
+                <select name="id" class="form-control">
                     <?php foreach ($data_barang as $barang) : ?>
                         <option value="<?php echo $barang['id']; ?>">
                             <?php echo $barang['id']; ?> - <?php echo $barang['nama']; ?>
