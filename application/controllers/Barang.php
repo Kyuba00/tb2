@@ -44,7 +44,7 @@ class Barang extends CI_Controller
     public function insert()
     {
         //mengambil daftar kategori barang dari table kategori barang
-        $data_kategori_barang = $this->kategori_barang_model->read();
+        $data_kategori = $this->kategori_barang_model->read();
 
         //mengirim data ke view
         $output = array(
@@ -52,7 +52,7 @@ class Barang extends CI_Controller
             'theme_page' => 'Barang/barang_insert',
 
             //mengirim daftar ke view
-            'data_kategori_barang' => $data_kategori_barang,
+            'data_kategori' => $data_kategori,
         );
 
         //memanggil file view
@@ -61,12 +61,11 @@ class Barang extends CI_Controller
 
     public function insert_submit()
     {
-        $this->form_validation->set_rules('kategori_barang_id', 'Kategori Barang', 'required');
+        $this->form_validation->set_rules('kategori_id', 'Kategori', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|numeric');
-        $this->form_validation->set_rules('harga_jual', 'Harga Jual', 'required|numeric');
+        $this->form_validation->set_rules('harga_beli', 'Beli', 'required|numeric');
+        $this->form_validation->set_rules('harga_jual', 'Jual', 'required|numeric');
         $this->form_validation->set_rules('stock', 'Stock', 'required|numeric');
-        $this->form_validation->set_rules('satuan', 'Satuan', 'required');
 
         //jika validasi gagal
         if ($this->form_validation->run() == FALSE) {
@@ -75,22 +74,20 @@ class Barang extends CI_Controller
             //jika validasi sukses
         } else {
             //menangkap data input dari view
-            $kategori_barang_id = $this->input->post('kategori_barang_id');
+            $kategori_id = $this->input->post('kategori_id');
             $nama = $this->input->post('nama');
             $harga_beli = $this->input->post('harga_beli');
             $harga_jual = $this->input->post('harga_jual');
             $stock = $this->input->post('stock');
-            $satuan = $this->input->post('satuan');
 
             //mengirim data ke model
             $input = array(
                 //format : nama field/kolom table => data input dari view
-                'kategori_barang_id' => $kategori_barang_id,
+                'kategori_id' => $kategori_id,
                 'nama' => $nama,
                 'harga_beli' => $harga_beli,
                 'harga_jual' => $harga_jual,
                 'stock' => $stock,
-                'satuan' => $satuan,
             );
 
             //memanggil function insert pada kategori_barang model
@@ -114,7 +111,7 @@ class Barang extends CI_Controller
         $data_barang_single = $this->barang_model->read_single($id);
 
         //mengambil daftar kategori barang dari table kategori barang
-        $data_kategori_barang = $this->kategori_barang_model->read();
+        $data_kategori = $this->kategori_barang_model->read();
 
         //mengirim data ke view
         $output = array(
@@ -125,7 +122,7 @@ class Barang extends CI_Controller
             'data_barang_single' => $data_barang_single,
 
             //mengirim daftar kategori barang ke view
-            'data_kategori_barang' => $data_kategori_barang,
+            'data_kategori' => $data_kategori,
         );
 
         //memanggil file view
@@ -137,12 +134,11 @@ class Barang extends CI_Controller
         //menangkap id data yg dipilih dari view
         $id = $this->uri->segment(3);
 
-        $this->form_validation->set_rules('kategori_barang_id', 'Kategori_Barang', 'required');
+        $this->form_validation->set_rules('kategori_id', 'Kategori_Barang', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|numeric');
         $this->form_validation->set_rules('harga_jual', 'Harga Jual', 'required|numeric');
         $this->form_validation->set_rules('stock', 'Stock', 'required|numeric');
-        $this->form_validation->set_rules('satuan', 'Satuan', 'required');
 
         //jika validasi gagal
         if ($this->form_validation->run() == FALSE) {
@@ -151,22 +147,20 @@ class Barang extends CI_Controller
             //jika validasi sukses
         } else {
             //menangkap data input dari view
-            $kategori_barang_id = $this->input->post('kategori_barang_id');
+            $kategori_id = $this->input->post('kategori_id');
             $nama = $this->input->post('nama');
             $harga_beli = $this->input->post('harga_beli');
             $harga_jual = $this->input->post('harga_jual');
             $stock = $this->input->post('stock');
-            $satuan = $this->input->post('satuan');
 
             //mengirim data ke model
             $input = array(
                 //format : nama field/kolom table => data input dari view
-                'kategori_barang_id' => $kategori_barang_id,
+                'kategori_id' => $kategori_id,
                 'nama' => $nama,
                 'harga_beli' => $harga_beli,
                 'harga_jual' => $harga_jual,
                 'stock' => $stock,
-                'satuan' => $satuan,
             );
 
             //memanggil function update pada barang model
@@ -186,8 +180,11 @@ class Barang extends CI_Controller
         //menangkap id data yg dipilih dari view
         $id = $this->uri->segment(3);
 
-        //memanggil function delete pada barang model
-        $data_barang = $this->barang_model->delete($id);
+        //memanggil function delete pada buku model
+        $this->barang_model->delete($id);
+
+        //pesan
+        $this->session->set_flashdata('message', 'Data berhasil dihapus');
 
         //mengembalikan halaman ke function read
         redirect('barang/read');

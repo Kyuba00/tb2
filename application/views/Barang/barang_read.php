@@ -1,7 +1,7 @@
 <!--link tambah data-->
 <div class="float-right">
-    <a href="<?= base_url('barang/data_export') ?>" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"></i>&nbsp;&nbsp;Export</a>
-    <a href="<?= base_url('barang/insert') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+    <a href="<?php echo site_url('barang/data_export') ?>" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"></i>&nbsp;&nbsp;Export</a>
+    <a href="<?php echo site_url('barang/insert') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
 </div>
 <br /><br />
 
@@ -16,12 +16,12 @@
                             <thead>
                                 <tr>
                                     <td>No</td>
-                                    <td>Kategori Barang</td>
+                                    <td>Kategori</td>
                                     <td>Nama Barang</td>
                                     <td>Harga Beli</td>
                                     <td>Harga Jual</td>
-                                    <td>Stok</td>
-                                    <td>Aksi</td>
+                                    <td>Stock</td>
+                                    <td>Action</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,14 +29,14 @@
                                 <?php foreach ($data_barang as $barang) : ?>
                                     <tr>
                                         <td><?php echo $no++; ?></td>
-                                        <td><?php echo $barang['nama_kategori_barang']; ?></td>
+                                        <td><?php echo $barang['nama_kategori']; ?></td>
                                         <td><?php echo $barang['nama']; ?></td>
-                                        <td>Rp <?= number_format($barang['harga_beli']) ?></td>
-                                        <td>Rp <?= number_format($barang['harga_jual']) ?></td>
-                                        <td><?= number_format($barang['stock']) ?></td>
+                                        <td>Rp <?php echo number_format($barang['harga_beli']) ?></td>
+                                        <td>Rp <?php echo number_format($barang['harga_jual']) ?></td>
+                                        <td><?php echo number_format($barang['stock']) ?></td>
                                         <td>
-                                            <a href="<?= base_url('barang/update/' . $barang['id']) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
-                                            <a onclick="return confirm('apakah anda yakin?')" href="<?= base_url('barang/delete/' . $barang['id']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            <a href="<?php echo site_url('barang/update/' . $barang['id']) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
+                                            <a onclick="return confirm('apakah anda yakin?')" href="<?php echo site_url('barang/delete/' . $barang['id']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

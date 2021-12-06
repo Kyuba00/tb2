@@ -10,9 +10,9 @@ class Barang_model extends CI_Model
 
         //sql read
         $this->db->select('barang.*');
-        $this->db->select('kategori_barang.nama AS nama_kategori_barang');
+        $this->db->select('kategori_barang.nama AS nama_kategori');
         $this->db->from('barang');
-        $this->db->join('kategori_barang', 'barang.kategori_barang_id = kategori_barang_id');
+        $this->db->join('kategori_barang', 'barang.kategori_id = kategori_id');
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
 

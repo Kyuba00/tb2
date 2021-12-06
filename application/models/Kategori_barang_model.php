@@ -11,6 +11,7 @@ class Kategori_barang_model extends CI_Model
         //sql read
         $this->db->select('*');
         $this->db->from('kategori_barang');
+        $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
 
         //$query->result_array = mengirim data ke controller dalam bentuk semua data
@@ -51,12 +52,6 @@ class Kategori_barang_model extends CI_Model
 
         //$input = data yang dikirim dari controller
         return $this->db->update('kategori_barang', $input);
-
-        /*
-		UPDATE kategori_barang
-		SET nama = 'Jakarta'
-		WHERE id = 1
-		*/
     }
 
     //function delete berfungsi menghapus data dari table kategori_barang di database
@@ -65,7 +60,5 @@ class Kategori_barang_model extends CI_Model
         //$id = id data yang dikirim dari controller (sebagai filter data yang dihapus)
         $this->db->where('id', $id);
         return $this->db->delete('kategori_barang');
-
-        //DELETE FROM kategori_barang WHERE id = 1
     }
 }
