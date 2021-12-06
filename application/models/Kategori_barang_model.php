@@ -11,7 +11,6 @@ class Kategori_barang_model extends CI_Model
         //sql read
         $this->db->select('*');
         $this->db->from('kategori_barang');
-        $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
 
         //$query->result_array = mengirim data ke controller dalam bentuk semua data

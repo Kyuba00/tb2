@@ -63,7 +63,7 @@ class Penjualan extends CI_Controller
     {
         $this->form_validation->set_rules('barang_id', 'Barang', 'required');
         $this->form_validation->set_rules('tanggal_jual', 'Tanggal', 'required');
-        $this->form_validation->set_rules('jumlah_terjual', 'Jumlah', 'required|numeric');
+        $this->form_validation->set_rules('total', 'Total', 'required|numeric');
 
         //jika validasi gagal
         if ($this->form_validation->run() == FALSE) {
@@ -74,14 +74,14 @@ class Penjualan extends CI_Controller
             //menangkap data input dari view
             $barang_id = $this->input->post('barang_id');
             $tanggal_jual = $this->input->post('tanggal_jual');
-            $jumlah_terjual = $this->input->post('jumlah_terjual');
+            $total = $this->input->post('total');
 
             //mengirim data ke model
             $input = array(
                 //format : nama field/kolom table => data input dari view
                 'barang_id' => $barang_id,
                 'tanggal_jual' => $tanggal_jual,
-                'jumlah_terjual' => $jumlah_terjual,
+                'total' => $total,
             );
 
             //memanggil function insert pada barang model
@@ -130,7 +130,7 @@ class Penjualan extends CI_Controller
 
         $this->form_validation->set_rules('barang_id', 'Barang', 'required');
         $this->form_validation->set_rules('tanggal_jual', 'Tanggal', 'required');
-        $this->form_validation->set_rules('jumlah_terjual', 'Jumlah', 'required|numeric');
+        $this->form_validation->set_rules('total', 'Total', 'required|numeric');
 
         //jika validasi gagal
         if ($this->form_validation->run() == FALSE) {
@@ -141,14 +141,14 @@ class Penjualan extends CI_Controller
             //menangkap data input dari view
             $barang_id = $this->input->post('barang_id');
             $tanggal_jual = $this->input->post('tanggal_jual');
-            $jumlah_terjual = $this->input->post('jumlah_terjual');
+            $total = $this->input->post('total');
 
             //mengirim data ke model
             $input = array(
                 //format : tanggal_jual field/kolom table => data input dari view
                 'barang_id' => $barang_id,
                 'tanggal_jual' => $tanggal_jual,
-                'jumlah_terjual' => $jumlah_terjual,
+                'total' => $total,
             );
 
             //memanggil function update pada penjualan model

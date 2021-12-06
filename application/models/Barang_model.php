@@ -5,15 +5,22 @@ class Barang_model extends CI_Model
 {
 
     //function read berfungsi mengambil/read data dari table barang di database
-    public function read($kategori_barang_id = '')
+    public function read($kategori_id = '')
     {
 
         //sql read
         $this->db->select('barang.*');
         $this->db->select('kategori_barang.nama AS nama_kategori');
         $this->db->from('barang');
-        $this->db->join('kategori_barang', 'barang.kategori_id = kategori_id');
-        $this->db->order_by('id', 'DESC');
+        $this->db->join('kategori_barang', 'barang.kategori_id = kategori_barang.id');
+
+        //filter data sesuai id yang dikirim dari controller
+        if ($kategori_id != '') {
+            $this->db->where('barang.kategori_id', $kategori_id);
+        }
+
+        $this->db->order_by('barang.kategori_id ASC, barang.nama ASC');
+
         $query = $this->db->get();
 
         //$query->result_array = mengirim data ke controller dalam bentuk semua data

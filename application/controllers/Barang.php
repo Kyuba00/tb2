@@ -92,7 +92,7 @@ class Barang extends CI_Controller
 
             //memanggil function insert pada kategori_barang model
             //function insert berfungsi menyimpan/create data ke table kategori_barang di database
-            $this->barang_model->insert($input);
+            $data_barang = $this->barang_model->insert($input);
 
             //pesan
             $this->session->set_flashdata('message', 'Data berhasil ditambah');
