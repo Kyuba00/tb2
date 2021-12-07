@@ -46,6 +46,7 @@ class Penjualan_model extends CI_Model
         //sql read
         $this->db->select('penjualan.*');
         $this->db->select('barang.nama AS nama_barang');
+        $this->db->select('barang.harga_jual AS harga_jual');
         $this->db->from('penjualan');
         $this->db->join('barang', 'penjualan.barang_id = barang.id');;
 

@@ -63,6 +63,7 @@ class Penjualan extends CI_Controller
     {
         $this->form_validation->set_rules('barang_id', 'Barang', 'required');
         $this->form_validation->set_rules('tanggal_jual', 'Tanggal', 'required');
+        $this->form_validation->set_rules('harga_jual', 'Jual', 'required');
         $this->form_validation->set_rules('total', 'Total', 'required|numeric');
 
         //jika validasi gagal
@@ -74,6 +75,7 @@ class Penjualan extends CI_Controller
             //menangkap data input dari view
             $barang_id = $this->input->post('barang_id');
             $tanggal_jual = $this->input->post('tanggal_jual');
+            $harga_jual = $this->input->post('harga_jual');
             $total = $this->input->post('total');
 
             //mengirim data ke model
@@ -81,6 +83,7 @@ class Penjualan extends CI_Controller
                 //format : nama field/kolom table => data input dari view
                 'barang_id' => $barang_id,
                 'tanggal_jual' => $tanggal_jual,
+                'harga_jual' => $harga_jual,
                 'total' => $total,
             );
 
